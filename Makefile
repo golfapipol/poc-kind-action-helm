@@ -1,7 +1,7 @@
 install_dependencies:
 	cd web && npm ci
 
-test_frontend
+test_frontend:
 	cd web && npm test
 
 test_backend:

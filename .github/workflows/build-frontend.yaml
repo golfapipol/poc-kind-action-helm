@@ -1,0 +1,33 @@
+name: build-frontend
+
+on:
+  push:
+    branches:
+    - "master"
+
+jobs:
+  kind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install Depenedencies
+        run: yarn install
+        env:
+          CI: true
+      - name: Code Analysis
+        run: make lint_frontend
+      - name: Unit Test
+        run: make test_frontend
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          context: web
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: golfapipol/poc-kind-action-helm-web
+          tag_with_ref: true

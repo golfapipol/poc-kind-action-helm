@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 14.x
       - name: Install Depenedencies
-        run: yarn install
+        run: npm ci
         env:
           CI: true
       - name: Code Analysis

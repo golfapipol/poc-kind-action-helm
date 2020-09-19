@@ -41,10 +41,8 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          path: ./web
+          path: ./api
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: golfapipol/poc-kind-action-helm-web
           tag_with_ref: true
-      - name: Docker push Image
-        run: docker push golfapipol/poc-kind-action-helm-api:${{ github.sha }}

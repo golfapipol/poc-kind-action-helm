@@ -44,4 +44,5 @@ jobs:
           context: ./api
           file: ./Dockerfile
           tags: golfapipol/poc-kind-action-helm-api:${{ github.sha }}
+          platforms: linux/amd64,linux/arm64,linux/386
           push: true

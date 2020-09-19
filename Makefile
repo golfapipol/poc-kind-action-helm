@@ -1,6 +1,9 @@
 install_dependencies:
 	cd web && npm ci
 
+test_frontend
+	cd web && npm test
+
 test_backend:
 	cd api && go test ./... -coverprofile cover.out
 

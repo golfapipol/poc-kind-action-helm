@@ -38,4 +38,6 @@ jobs:
           file: ./Dockerfile
           tags: golfapipol/poc-kind-action-helm-web:${{ github.sha }}
           platforms: linux/amd64,linux/arm64,linux/386
-          push: true
+          push: false
+      - name: Docker push Image
+        run: docker push golfapipol/poc-kind-action-helm-api:${{ github.sha }}

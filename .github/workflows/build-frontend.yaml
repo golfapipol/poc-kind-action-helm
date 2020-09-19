@@ -8,7 +8,7 @@ on:
     - 'web/**'
 
 jobs:
-  kind:
+  build-frontend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

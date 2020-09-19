@@ -8,7 +8,7 @@ on:
     - 'api/**'
 
 jobs:
-  kind:
+  build-backend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
